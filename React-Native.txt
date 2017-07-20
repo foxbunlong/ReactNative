@@ -1,0 +1,14 @@
+react native setup
+
+-- Uninstall ESLint globally (if any)
+npm uninstall -g eslint
+
+-- Install ESLint locally (only inside project)
+npm install eslint
+
+-- Install inside VSCode
+
+-- Install Rallycoding
+npm install --save-dev eslint-config-rallycoding
+
+npm install --save-dev eslint-config-rallycoding eslint@^3.0.0
