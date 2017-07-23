@@ -1,6 +1,7 @@
 import React from 'react';
-import { AppRegistry } from 'react-native'; // Import destructures
+import { AppRegistry, View } from 'react-native'; // Import destructures
 import Header from './src/components/header'; // Component nesting
+import AlbumList from './src/components/AlbumList';
 
 // const App = () => {
 //   return (
@@ -9,7 +10,10 @@ import Header from './src/components/header'; // Component nesting
 // };
 
 const App = () => (
-  <Header />
+  <View>
+    <Header headerText={'Albums'} />
+    <AlbumList />
+  </View>
 );
 
 AppRegistry.registerComponent('albums', () => App);
