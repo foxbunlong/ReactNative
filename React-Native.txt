@@ -15,3 +15,6 @@ npm install --save-dev eslint-config-rallycoding eslint@^3.0.0
 
 -- Install Axios
 npm install --save axios
+
+-- Install Firebase
+npm install --save firebase
