@@ -10,7 +10,7 @@ const App = () => {
     return (
         // Translate anything inside store to something can be used in react side
         <Provider store={createStore(reducers)}>
-            <View>
+            <View style={{ flex: 1 }}>
                 <Header headerText="Tech Stack" />
                 <LibraryList />
             </View>
