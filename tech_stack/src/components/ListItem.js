@@ -1,18 +1,41 @@
 import React, { Component } from 'react';
-import { Text, TouchableWithoutFeedback, View } from 'react-native';
+import {
+    Text,
+    TouchableWithoutFeedback,
+    View,
+    LayoutAnimation,
+    UIManager,
+    Platform
+} from 'react-native';
 import { connect } from 'react-redux';
 import { CardSection } from './common';
 import * as actions from '../actions';
 
 class ListItem extends Component {
 
+    constructor() {
+        super();
+
+        // Put init in construtor in order to enable animation on Android
+        if (Platform.OS === 'android') {
+            UIManager.setLayoutAnimationEnabledExperimental
+                && UIManager.setLayoutAnimationEnabledExperimental(true);
+        }
+    }
+
+    componentWillUpdate() {
+        LayoutAnimation.spring();
+    }
+
     renderDescription() {
 
-        const { library, selectedLibraryId } = this.props;
+        const { library, expanded } = this.props;
 
-        if (library.id === selectedLibraryId) {
+        if (expanded) {
             return (
-                <Text>{library.description}</Text>
+                <CardSection>
+                    <Text style={{ flex: 1 }}>{library.description}</Text>
+                </CardSection>
             );
         }
     }
@@ -47,10 +70,11 @@ const styles = {
     }
 }
 
-const mapStateToProps = state => {
-    return {
-        selectedLibraryId: state.selectedLibraryId
-    };
+// Kind of interfaces
+const mapStateToProps = (state, ownProps) => {
+    const expanded = state.selectedLibraryId === ownProps.library.id;
+
+    return { expanded };
 }
 
 export default connect(mapStateToProps, actions)(ListItem);
