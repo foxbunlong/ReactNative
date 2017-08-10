@@ -21,3 +21,6 @@ npm install --save firebase
 
 -- Install Redux and React-Redux
 npm install --save redux react-redux
+
+-- Install Redux thunk
+npm install --save redux-thunk
