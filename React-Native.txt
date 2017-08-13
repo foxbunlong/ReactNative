@@ -24,3 +24,7 @@ npm install --save redux react-redux
 
 -- Install Redux thunk
 npm install --save redux-thunk
+
+-- React Native Navigation --
+-- Install React Native Router Flux
+npm install --save react-native-router-flux@3.35.0
