@@ -1,4 +1,7 @@
-import { EMPLOYEE_UPDATE } from '../actions/Types';
+import {
+    EMPLOYEE_UPDATE,
+    EMPLOYEE_CREATE
+} from '../actions/Types';
 
 const INIT_STATE = {
     name: '',
@@ -12,6 +15,9 @@ export default (state = INIT_STATE, action) => {
             // [ ] is Key Interpolation. 
             // action.payload.prop can be replaced by any kind of key
             return { ...state, [action.payload.prop]: action.payload.value };
+
+        case EMPLOYEE_CREATE:
+            return INIT_STATE;
 
         default:
             return state;
