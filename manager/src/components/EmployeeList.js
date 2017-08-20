@@ -22,10 +22,10 @@ class EmployeeList extends Component {
 
     createDataSource({ employees }) {
         const ds = new ListView.DataSource({
-            rowHasChanged: (r1, r2) => r1 != r2
+            rowHasChanged: (r1, r2) => r1 !== r2
         });
 
-        this.dataSource = ds.cloneWithRows(this.props.employees);
+        this.dataSource = ds.cloneWithRows(employees);
     }
 
     renderRowItem(employee) {
