@@ -31,3 +31,6 @@ npm install --save react-native-router-flux@3.35.0
 
 -- Install Lodash
 npm install --save lodash
+
+-- Install communications
+npm install --save react-native-communications
