@@ -34,3 +34,15 @@ npm install --save lodash
 
 -- Install communications
 npm install --save react-native-communications
+
+-- Fix Error 500 when build project
+yarn remove babel-preset-react-native 
+yarn add babel-preset-react-native@2.1.0
+
+-- Install React Native Elements
+npm install --save react-native-elements
+OR
+npm i react-native-vector-icons --save && react-native link react-native-vector-icons
+yarn add react-native-elements
+OR
+npm i react-native-elements --save
