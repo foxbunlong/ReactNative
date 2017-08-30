@@ -46,3 +46,15 @@ npm i react-native-vector-icons --save && react-native link react-native-vector-
 yarn add react-native-elements
 OR
 npm i react-native-elements --save
+
+-- Install Firebase Tools
+npm install -g firebase-tools
+
+-- Firebase login
+firebase login
+
+-- Firebase init project within a folder
+firebase init
+
+-- Firebase deploy functions
+firebase deploy --project one-time-password-e3a68
