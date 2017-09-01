@@ -58,3 +58,13 @@ firebase init
 
 -- Firebase deploy functions
 firebase deploy --project one-time-password-e3a68
+
+-- Twilio US phone number
+(415) 301-6873
++14153016873
+
+-- Twilio setup sandbox phone number and allowed countries in
+https://www.twilio.com/console/sms/settings/geo-permissions
+
+-- Install Twilio client
+npm install --save twilio@3.0.0-rc.13
