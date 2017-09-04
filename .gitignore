@@ -1,1 +1,5 @@
 one-time-password/functions/service_account.json
+.idea
+**/node_modules/*
+**/.firebaserc
+*/npm-debug.log
