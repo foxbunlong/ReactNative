@@ -1,5 +1,8 @@
 react native setup
 
+-- Init new project using React-native CLI
+react-native init <Project_name>
+
 -- Uninstall ESLint globally (if any)
 npm uninstall -g eslint
 
