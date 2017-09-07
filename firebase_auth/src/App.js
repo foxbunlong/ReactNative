@@ -6,12 +6,14 @@ import {
     View
 } from 'react-native';
 import SignUpForm from './components/SignUpForm';
+import SignInForm from './components/SignInForm';
 
 export default class App extends Component {
     render() {
         return (
             <View style={styles.container}>
                 <SignUpForm />
+                <SignInForm />
             </View>
         );
     }
@@ -20,7 +22,7 @@ export default class App extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
+        justifyContent: 'space-around',
         alignItems: 'center',
         backgroundColor: '#F5FCFF',
     },

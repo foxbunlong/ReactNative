@@ -5,20 +5,19 @@ import axios from 'axios';
 
 const ROOT_URL = 'https://us-central1-one-time-password-e3a68.cloudfunctions.net';
 
-class SignUpForm extends Component {
+class SignInForm extends Component {
 
-    // Instead of writing bundle of code in constructor, write 1 simple line of code
-    // constructor(props) {
-    //     super(props);
-    //     this.state = { phone: '' };
-    // }
-    state = { phone: '' };
+    state = { phone: '', code: '' };
 
     // Put async in front of function declaration and await in front of each function
     handleSubmit = async () => {
         try {
-            await axios.post(`${ROOT_URL}/createUser`, { phone: this.state.phone });
-            await axios.post(`${ROOT_URL}/requestOneTimePassword`, { phone: this.state.phone });
+            let response = await axios.post(`${ROOT_URL}/verifyOneTimePassword`, {
+                phone: this.state.phone,
+                code: this.state.code
+            });
+
+            console.log(response);
         } catch (error) {
             console.log(error);
         }
@@ -44,10 +43,18 @@ class SignUpForm extends Component {
                     />
                 </View>
 
+                <View style={{ marginBottom: 10 }}>
+                    <FormLabel>Enter code</FormLabel>
+                    <FormInput
+                        value={this.state.code}
+                        onChangeText={code => this.setState({ code })}
+                    />
+                </View>
+
                 <Button title="Submit" onPress={this.handleSubmit} />
             </View>
         );
     }
 }
 
-export default SignUpForm;
+export default SignInForm;
