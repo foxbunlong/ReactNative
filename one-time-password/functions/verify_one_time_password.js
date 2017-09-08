@@ -15,7 +15,7 @@ module.exports = function (request, response) {
                 ref.off();
                 const user = snapshot.val();
 
-                if (user.code !== request.body.code || !user.codeValid) {
+                if (user.code !== code || !user.codeValid) {
                     return response.status(422).send({ error: 'Code not valid' });
                 }
 
