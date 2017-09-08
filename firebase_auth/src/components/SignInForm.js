@@ -14,7 +14,7 @@ class SignInForm extends Component {
         try {
             let response = await axios.post(`${ROOT_URL}/verifyOneTimePassword`, {
                 phone: this.state.phone,
-                code: this.state.code
+                code: parseInt(this.state.code, 10) // Parse string to integer to fix api calling
             });
 
             console.log(response);
