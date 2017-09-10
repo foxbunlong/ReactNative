@@ -74,3 +74,6 @@ npm install --save twilio@3.0.0-rc.13
 
 -- Install React native alpha 12
 npm i react@16.0.0-alpha.12 --save
+
+-- Install React Native Navigation
+npm install --save react-navigation
