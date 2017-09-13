@@ -1,10 +1,19 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
+import { Button } from 'react-native-elements';
 
 class ReviewScreen extends Component {
     static navigationOptions = {
         title: 'Review Jobs',
-        headerRight: () => <Text>Go right</Text>
+        // header: () => {
+        //     return {
+        //         right: <Text>Right</Text>
+        //     };
+        // }
+
+        // Fix Go right button due to changes in framework
+        headerRight: <Button title="Settings" onPress={() => {
+            }} />
     }
 
     render() {
