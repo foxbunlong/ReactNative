@@ -3,7 +3,7 @@ import { View, Text } from 'react-native';
 import { Button } from 'react-native-elements';
 
 class ReviewScreen extends Component {
-    static navigationOptions = {
+    static navigationOptions = ({ navigation }) => ({
         title: 'Review Jobs',
         // header: () => {
         //     return {
@@ -12,9 +12,8 @@ class ReviewScreen extends Component {
         // }
 
         // Fix Go right button due to changes in framework
-        headerRight: <Button title="Settings" onPress={() => {
-            }} />
-    }
+        headerRight: <Button title="Settings" onPress={() => { navigation.navigate('settings'); }} />
+    });
 
     render() {
         return (
