@@ -30,18 +30,23 @@ export default class App extends React.Component {
           // Fix for Sub section
           {
             //tabBarPosition: 'bottom',
-            lazyLoad: true,
+            lazy: true,
             swipeEnabled: false,
             animationEnabled: false,
+            tabBarVisible: false // Fix Facebook login form not showing up
           })
       }
     },
       // Fix for Main section
       {
         //tabBarPosition: 'bottom',
+        navigationOptions: {
+          tabBarVisible: false
+        },
         lazy: true,
         swipeEnabled: true,
-        animationEnabled: true,
+        animationEnabled: false, // Fix navigation to Map screen
+        tabBarVisible: false // Fix Facebook login form not showing up
       }
     );
 
