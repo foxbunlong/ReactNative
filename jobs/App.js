@@ -39,7 +39,7 @@ export default class App extends React.Component {
       // Fix for Main section
       {
         //tabBarPosition: 'bottom',
-        lazyLoad: true,
+        lazy: true,
         swipeEnabled: true,
         animationEnabled: true,
       }
