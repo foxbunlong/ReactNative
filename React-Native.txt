@@ -77,3 +77,9 @@ npm i react@16.0.0-alpha.12 --save
 
 -- Install React Native Navigation
 npm install --save react-navigation
+
+-- Install LatLng To Zip
+npm install --save latlng-to-zip
+
+-- Install QS to concate string for url builder
+npm install --save qs
