@@ -1,7 +1,8 @@
 import { combineReducers } from 'redux';
 import auth from './AuthReducer';
 import jobs from './JobReducer';
+import likedJobs from './LikeReducer';
 
 export default combineReducers({
-    auth, jobs // ES6
+    auth, jobs, likedJobs // ES6
 });

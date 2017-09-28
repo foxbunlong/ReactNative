@@ -1,18 +1,29 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Platform } from 'react-native';
 import { connect } from 'react-redux';
 import Swipe from '../components/Swipe';
 import { MapView } from 'expo';
 import { Card, Button } from 'react-native-elements';
+import * as actions from '../actions';
 
 class DeckScreen extends Component {
     renderCard(job) {
+
+        const initRegion = {
+            longitude: job.longitude,
+            latitude: job.latitude,
+            latitudeDelta: 0.045,
+            longitudeDelta: 0.02
+        };
+
         return (
             <Card title={job.jobtitle}>
                 <View style={{ height: 300 }}>
                     <MapView
                         scrollEnabled={false}
                         style={{ flex: 1 }}
+                        cacheEnabled={Platform.OS === 'android' ? true : false} // static image of map
+                        initialRegion={initRegion}
                     >
 
                     </MapView>
@@ -36,11 +47,13 @@ class DeckScreen extends Component {
 
     render() {
         return (
-            <View>
+            <View style={{ marginTop: 10 }}>
                 <Swipe
                     data={this.props.jobs}
                     renderCard={this.renderCard}
                     renderNoMoreCards={this.renderNoMoreCards}
+                    onSwipeRight={job => this.props.likeJob(job)}
+                    keyProp="jobkey"
                 />
             </View>
         );
@@ -59,4 +72,4 @@ function mapStateToProps({ jobs }) {
     return { jobs: jobs.results };
 }
 
-export default connect(mapStateToProps)(DeckScreen);
+export default connect(mapStateToProps, actions)(DeckScreen);
