@@ -29,10 +29,18 @@ export default class App extends React.Component {
         },
           // Fix for Sub section
           {
-            //tabBarPosition: 'bottom',
+            tabBarPosition: 'bottom',
             lazy: true,
             swipeEnabled: false,
             animationEnabled: false,
+            tabBarOptions: {
+              labelStyle: { fontSize: 12 },
+              showIcon: true,
+              iconStyle: {
+                width: 30,
+                height: 30
+              }
+            },
             tabBarVisible: false // Fix Facebook login form not showing up
           })
       }
