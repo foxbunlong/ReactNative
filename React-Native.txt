@@ -83,3 +83,8 @@ npm install --save latlng-to-zip
 
 -- Install QS to concate string for url builder
 npm install --save qs
+
+-- Install Redux Persist to store data offline
+npm install --save redux-persist
+
+-- Consider using Redux Persist Migrate. Just like sqlite migration.
