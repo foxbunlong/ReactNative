@@ -1,0 +1,3 @@
+rootProject.name = 'demoqrcode'
+
+include ':app'

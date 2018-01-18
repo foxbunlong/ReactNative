@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`QRCode renders correctly 1`] = `
+<div>
+  <div>
+    <span>
+      Rect
+    </span>
+    <span>
+      Path
+    </span>
+  </div>
+</div>
+`;
+
+exports[`QRCode renders with logo correctly 1`] = `
+<div>
+  <div>
+    <span>
+      Rect
+    </span>
+    <span>
+      Path
+    </span>
+  </div>
+  <div>
+    <div>
+      <span>
+        Source: 
+        fakeUri
+      </span>
+      <span>
+        ResizeMode: 
+        contain
+      </span>
+    </div>
+  </div>
+</div>
+`;

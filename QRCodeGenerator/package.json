@@ -1,0 +1,31 @@
+{
+  "name": "QRCodeGenerator",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest"
+  },
+  "dependencies": {
+    "babel-preset-react-native": "2.1.0",
+    "prop-types": "^15.5.10",
+    "qrcode": "^0.9.0",
+    "react": "16.0.0",
+    "react-native": "0.51.0",
+    "react-native-qrcode-svg": "^5.0.5",
+    "react-native-svg": "^5.5.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.0.1",
+    "babel-jest": "22.0.4",
+    "jest": "22.0.4",
+    "lint-staged": "^4.2.3",
+    "pre-commit": "^1.2.2",
+    "publish": "^0.6.0",
+    "react-test-renderer": "16.0.0",
+    "standard": "^10.0.3"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
