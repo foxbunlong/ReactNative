@@ -1,5 +1,11 @@
 react native setup
 
+==== New with JSX ====
+- Using source from rn-starter
+- Extract and run command: npm install --legacy-peer-deps
+
+=== Ended with JSX ===
+
 -- Init new project using React-native CLI
 react-native init <Project_name>
 
