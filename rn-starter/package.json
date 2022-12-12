@@ -1,15 +1,14 @@
 {
-  "name": "rn-starter-update",
-  "version": "1.0.0",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "eject": "expo eject"
   },
   "dependencies": {
-    "@react-native-community/masked-view": "^0.1.11",
+    "@react-native-community/masked-view": "0.1.11",
     "expo": "~47.0.3",
     "expo-status-bar": "~1.4.2",
     "react": "18.1.0",
@@ -22,7 +21,7 @@
     "react-navigation-stack": "^2.10.4"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.9"
+    "@babel/core": "^7.9.0"
   },
   "private": true
 }
