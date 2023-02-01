@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     marginHorizontal: 15,
     flexDirection: "row",
-    marginTop: 10,
+    marginVertical: 10,
     // alignItems: "center", // This will limit amount of space to focus inputtext
   },
   icon: {
