@@ -12,19 +12,11 @@ const SearchScreen = () => {
   const [errorMsg, setErrorMsg] = useState("");
 
   const searchApi = async (term) => {
-    console.log("hi there");
     setResults([]);
     setErrorMsg("");
     try {
-      const response = await dataService.get("/search", {
-        params: {
-          limit: 50,
-          term,
-          location: "san jose",
-        },
-      });
-      console.log("response", response);
-      setResults(response.data.businesses);
+      const response = await dataService.get("/highlight-stores");
+      setResults(response.data.data.data);
     } catch (error) {
       console.log(error);
       setErrorMsg("Something wrong");
