@@ -1,13 +1,13 @@
-import { useState } from "react";
-import { ScrollView, StyleSheet } from "react-native";
+import { useState } from 'react';
+import { ScrollView, StyleSheet } from 'react-native';
 
-import ResultList from "../components/ResultList";
-import SearchBar from "../components/SearchBar";
-import useResults from "../hooks/useResults";
+import ResultList from '../components/ResultList';
+import SearchBar from '../components/SearchBar';
+import useResults from '../hooks/useResults';
 
 const styles = StyleSheet.create({});
 
-const SearchScreen = () => {
+const SearchScreen = ({ navigation }) => {
   const [term, setTerm] = useState("");
   const [searchApi, results, errorMsg] = useResults();
 
@@ -30,10 +30,10 @@ const SearchScreen = () => {
         onTermSubmit={() => searchApi(term)}
       />
       <ScrollView>
-        <ResultList data={filterResultsByCategory(0)} />
-        <ResultList data={filterResultsByCategory(1)} />
-        <ResultList data={filterResultsByCategory(2)} />
-        <ResultList data={filterResultsByCategory(3)} />
+        <ResultList data={filterResultsByCategory(0)} navigation={navigation} />
+        <ResultList data={filterResultsByCategory(1)} navigation={navigation} />
+        <ResultList data={filterResultsByCategory(2)} navigation={navigation} />
+        <ResultList data={filterResultsByCategory(3)} navigation={navigation} />
       </ScrollView>
     </>
   );

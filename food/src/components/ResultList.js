@@ -1,6 +1,12 @@
-import { FlatList, StyleSheet, Text, View } from 'react-native';
+import {
+  FlatList,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 
-import ResultDetail from './ResultDetail';
+import ResultDetail from "./ResultDetail";
 
 const styles = StyleSheet.create({
   container: {
@@ -14,11 +20,19 @@ const styles = StyleSheet.create({
   },
 });
 
-const ResultList = ({ data }) => {
+const ResultList = ({ data, navigation }) => {
   console.log("data", data);
 
+  const navigateToItem = (item) => {
+    navigation.navigate("Result", item.id);
+  };
+
   const renderItem = (item) => {
-    return <ResultDetail item={item} />;
+    return (
+      <TouchableOpacity onPress={() => navigateToItem(item)}>
+        <ResultDetail item={item} />
+      </TouchableOpacity>
+    );
   };
 
   return (
