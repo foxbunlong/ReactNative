@@ -7,7 +7,7 @@ import useResults from '../hooks/useResults';
 
 const styles = StyleSheet.create({});
 
-const SearchScreen = ({ navigation }) => {
+const SearchScreen = () => {
   const [term, setTerm] = useState("");
   const [searchApi, results, errorMsg] = useResults();
 
@@ -22,6 +22,7 @@ const SearchScreen = ({ navigation }) => {
   };
 
   // Placeholder (Empty element) will prevent the view to run out of the edge. Same as <View style={{flex: 1}} ></View>
+  // We should not pass the navigation props around from parent to child components
   return (
     <>
       <SearchBar
@@ -30,10 +31,10 @@ const SearchScreen = ({ navigation }) => {
         onTermSubmit={() => searchApi(term)}
       />
       <ScrollView>
-        <ResultList data={filterResultsByCategory(0)} navigation={navigation} />
-        <ResultList data={filterResultsByCategory(1)} navigation={navigation} />
-        <ResultList data={filterResultsByCategory(2)} navigation={navigation} />
-        <ResultList data={filterResultsByCategory(3)} navigation={navigation} />
+        <ResultList data={filterResultsByCategory(0)} />
+        <ResultList data={filterResultsByCategory(1)} />
+        <ResultList data={filterResultsByCategory(2)} />
+        <ResultList data={filterResultsByCategory(3)} />
       </ScrollView>
     </>
   );

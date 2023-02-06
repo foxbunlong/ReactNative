@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
-import dataService from "../api/DataService";
+import dataService from '../api/DataService';
 
 export default () => {
   const [results, setResults] = useState([]);
@@ -22,7 +22,7 @@ export default () => {
   // 1st load
   useEffect(() => {
     searchApi("pasta");
-  }, []);
+  }, []); // useEffect will call one time if leave 2nd params empty
 
   return [searchApi, results, errorMsg];
 };

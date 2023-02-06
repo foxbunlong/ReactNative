@@ -1,11 +1,13 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from "react-native";
 
 const styles = StyleSheet.create({});
 
-const ResultShowScreen = () => {
+const ResultShowScreen = ({ navigation }) => {
+  const id = navigation.getParam("id");
+
   return (
     <View>
-      <Text>AAAAA</Text>
+      <Text>{id}</Text>
     </View>
   );
 };

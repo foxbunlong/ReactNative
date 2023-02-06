@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
+import { withNavigation } from "react-navigation";
 
 import ResultDetail from "./ResultDetail";
 
@@ -24,7 +25,7 @@ const ResultList = ({ data, navigation }) => {
   console.log("data", data);
 
   const navigateToItem = (item) => {
-    navigation.navigate("Result", item.id);
+    navigation.navigate("Result", { id: item.id });
   };
 
   const renderItem = (item) => {
@@ -51,4 +52,5 @@ const ResultList = ({ data, navigation }) => {
   );
 };
 
-export default ResultList;
+// Make ResultList has extra function to access navigation
+export default withNavigation(ResultList);
