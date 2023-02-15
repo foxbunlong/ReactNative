@@ -1,4 +1,4 @@
-import createDataContext from "./createDataContext";
+import createDataContext from './createDataContext';
 
 const blogReducer = (state, action) => {
   switch (action.type) {
@@ -7,7 +7,8 @@ const blogReducer = (state, action) => {
         ...state,
         {
           id: Math.floor(Math.random() * 999999),
-          title: `Blog post #${state.length + 1}`,
+          title: action.payload.title,
+          content: action.payload.content,
         },
       ];
 
@@ -20,10 +21,12 @@ const blogReducer = (state, action) => {
 };
 
 const addBlog = (dispatch) => {
-  return () => {
+  return (title, content, callback) => {
     dispatch({
       type: "addBlog",
+      payload: { title, content },
     });
+    callback();
   };
 };
 
