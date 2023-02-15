@@ -29,19 +29,21 @@ const styles = StyleSheet.create({
   },
 });
 
-const IndexScreen = () => {
+const IndexScreen = ({ navigation }) => {
   const { state, addBlog, deleteBlog } = useContext(BlogContext);
 
   const renderItem = ({ item }) => {
     return (
-      <View style={styles.row}>
-        <Text style={styles.title}>
-          {item.id} - {item.title}
-        </Text>
-        <TouchableOpacity onPress={() => deleteBlog(item.id)}>
-          <Feather name="trash" style={styles.icon} />
-        </TouchableOpacity>
-      </View>
+      <TouchableOpacity onPress={() => navigation.navigate("Show", {id: item.id})}>
+        <View style={styles.row}>
+          <Text style={styles.title}>
+            {item.id} - {item.title}
+          </Text>
+          <TouchableOpacity onPress={() => deleteBlog(item.id)}>
+            <Feather name="trash" style={styles.icon} />
+          </TouchableOpacity>
+        </View>
+      </TouchableOpacity>
     );
   };
   return (
