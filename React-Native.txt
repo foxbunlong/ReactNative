@@ -14,6 +14,15 @@ plugins: ["react-native-reanimated/plugin"],
 
 === Ended with JSX ===
 
+=== JSON Server ===
+-- install JSON Server
+yarn add json-server ngrok
+
+-- Run 2 services with yarn
+yarn db
+yarn tunnel
+=== Ended with JSON Server ===
+
 -- Init new project using React-native CLI
 react-native init <Project_name>
 
