@@ -1,15 +1,15 @@
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect } from "react";
 import {
   FlatList,
   StyleSheet,
   Text,
   TouchableOpacity,
   View,
-} from 'react-native';
+} from "react-native";
 
-import { Feather } from '@expo/vector-icons';
+import { Feather } from "@expo/vector-icons";
 
-import { Context as BlogContext } from '../context/BlogContext';
+import { Context as BlogContext } from "../context/BlogContext";
 
 const styles = StyleSheet.create({
   row: {
@@ -33,6 +33,18 @@ const IndexScreen = ({ navigation }) => {
 
   useEffect(() => {
     getBlogs();
+
+    // Listen to event trigged when back from other screens to Index screen
+    const listener = navigation.addListener("didFocus", () => {
+      console.log("didFocus");
+      getBlogs();
+    });
+
+    return () => {
+      // Only called when instance of Index Screen is completely stopped showing on screen
+      console.log("disposed");
+      listener.remove();
+    };
   }, []);
 
   const renderItem = ({ item }) => {

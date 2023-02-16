@@ -8,6 +8,9 @@ yarn add react-navigation-stack @react-native-community/masked-view
 - Find the babel.config.js file and add the following line to the return:
 plugins: ["react-native-reanimated/plugin"],
 
+--- React navigation V6 ---
+NavigationContainer > Stack.Navigator > Stack.Screen
+
 ==== New with JSX ====
 - Using source from rn-starter
 - Extract and run command: npm install --legacy-peer-deps

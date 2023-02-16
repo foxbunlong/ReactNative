@@ -39,17 +39,20 @@ const getBlogs = (dispatch) => {
 };
 
 const addBlog = (dispatch) => {
-  return (title, content, callback) => {
-    dispatch({
-      type: "addBlog",
-      payload: { title, content },
-    });
+  return async (title, content, callback) => {
+    await jsonServer.post("/blogposts", { title, content });
+    // dispatch({
+    //   type: "addBlog",
+    //   payload: { title, content },
+    // });
     if (callback) callback();
   };
 };
 
 const editBlog = (dispatch) => {
-  return (id, title, content, callback) => {
+  return async (id, title, content, callback) => {
+    await jsonServer.patch(`/blogposts/${id}`, { title, content });
+    // await jsonServer.put(`/blogposts/${id}`, { title, content });
     dispatch({
       type: "editBlog",
       payload: { id, title, content },
@@ -59,7 +62,8 @@ const editBlog = (dispatch) => {
 };
 
 const deleteBlog = (dispatch) => {
-  return (id) => {
+  return async (id) => {
+    await jsonServer.delete(`/blogposts/${id}`);
     dispatch({
       type: "deleteBlog",
       payload: id,
