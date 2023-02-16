@@ -114,3 +114,12 @@ npm install --save qs
 npm install --save redux-persist
 
 -- Consider using Redux Persist Migrate. Just like sqlite migration.
+
+==== Express API ====
+// Install dependencies
+// bcrypt - A library to help you hash passwords.
+// express - API
+// nodemon - Detect file change and reload service automatically
+// jsonwebtoken - JWT sign
+// mongoose - object modeling tool to work with mongo db server
+yarn add bcrypt express jsonwebtoken mongoose nodemon
