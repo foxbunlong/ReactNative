@@ -123,3 +123,6 @@ npm install --save redux-persist
 // jsonwebtoken - JWT sign
 // mongoose - object modeling tool to work with mongo db server
 yarn add bcrypt express jsonwebtoken mongoose nodemon
+
+==== Mongoose ====
+// Need a model class to let Mongoose know the data structure

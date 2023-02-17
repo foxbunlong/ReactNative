@@ -1,11 +1,19 @@
+// Models
+require("./models/User");
+
 const express = require("express");
 const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
+const authRoutes = require("./routes/authRoutes");
+
 mongoose.set("strictQuery", true);
 
 const app = express();
+app.use(bodyParser.json()); // Put this line 1st to handle json correctly
+app.use(authRoutes);
 
 // const password = encodeURIComponent(
-//     "Tbl123456@"
+//     "abcdef@"
 //   );
 
 // Use Mongo to generate password, password with special char not work
