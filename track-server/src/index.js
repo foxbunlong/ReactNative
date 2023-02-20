@@ -1,10 +1,12 @@
 // Models
 require("./models/User");
+require("./models/Track");
 
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const authRoutes = require("./routes/authRoutes");
+const trackRoutes = require("./routes/trackRoutes");
 const requireAuth = require("./middlewares/requireAuth");
 
 mongoose.set("strictQuery", true);
@@ -12,6 +14,7 @@ mongoose.set("strictQuery", true);
 const app = express();
 app.use(bodyParser.json()); // Put this line 1st to handle json correctly
 app.use(authRoutes);
+app.use(trackRoutes);
 
 // const password = encodeURIComponent(
 //     "abcdef@"
