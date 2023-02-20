@@ -8,6 +8,10 @@ yarn add react-navigation-stack @react-native-community/masked-view
 - Find the babel.config.js file and add the following line to the return:
 plugins: ["react-native-reanimated/plugin"],
 
+==== Basic structure for app with auth and main flow ====
+app: SwitchNavigator > authFlow: StackNavigator
+                    | mainFlow: MaterialBottomTabNavigator > [optional] StackNavigator
+
 --- React navigation V6 ---
 NavigationContainer > Stack.Navigator > Stack.Screen
 
