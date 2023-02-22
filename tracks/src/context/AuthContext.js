@@ -1,5 +1,7 @@
-import trackerApi from '../api/tracker';
-import createDataContext from './createDataContext';
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
+import trackerApi from "../api/tracker";
+import createDataContext from "./createDataContext";
 
 const authReducer = (state, action) => {
   switch (action.type) {
@@ -9,13 +11,20 @@ const authReducer = (state, action) => {
         errorMessage: action.payload,
       };
 
+    case "updateToken":
+      return {
+        errorMessage: "",
+        token: action.payload,
+      };
+
     default:
-      return false;
+      return state;
   }
 };
 
-const signup = (dispatch) => {
-  return async ({ email, password }) => {
+const signup =
+  (dispatch) =>
+  async ({ email, password }) => {
     // Make request
     console.log(email, password);
     try {
@@ -23,7 +32,11 @@ const signup = (dispatch) => {
         email,
         password,
       });
-      console.log("resp", resp.data);
+      await AsyncStorage.setItem("token", resp.data.token);
+      dispatch({
+        type: "updateToken",
+        payload: resp.data.token,
+      });
     } catch (error) {
       dispatch({
         type: "addError",
@@ -31,7 +44,6 @@ const signup = (dispatch) => {
       });
     }
   };
-};
 
 const signin = (dispatch) => {
   return ({ email, password }) => {
@@ -48,5 +60,5 @@ const signout = (dispatch) => {
 export const { Provider, Context } = createDataContext(
   authReducer,
   { signin, signout, signup },
-  { isSignedIn: false, errorMessage: "" }
+  { token: null, errorMessage: "" }
 );
