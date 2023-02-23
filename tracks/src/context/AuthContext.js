@@ -1,6 +1,7 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import trackerApi from "../api/tracker";
+import { navigate } from "../navigationRef";
 import createDataContext from "./createDataContext";
 
 const authReducer = (state, action) => {
@@ -26,7 +27,6 @@ const signup =
   (dispatch) =>
   async ({ email, password }) => {
     // Make request
-    console.log(email, password);
     try {
       const resp = await trackerApi.post("/signup", {
         email,
@@ -37,6 +37,8 @@ const signup =
         type: "updateToken",
         payload: resp.data.token,
       });
+
+      navigate("mainFlow");
     } catch (error) {
       dispatch({
         type: "addError",
