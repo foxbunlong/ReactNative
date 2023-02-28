@@ -14,19 +14,28 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.longtb.testapp"
+      "bundleIdentifier": "com.longtb.testapp",
+      "infoPlist": {
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "Allow $(PRODUCT_NAME) to use your location",
+        "NSLocationAlwaysUsageDescription": "Allow $(PRODUCT_NAME) to use your location",
+        "NSLocationWhenInUseUsageDescription": "Allow $(PRODUCT_NAME) to use your location"
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.longtb.testapp"
+      "package": "com.longtb.testapp",
+      "permissions": [
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_FINE_LOCATION",
+        "FOREGROUND_SERVICE",
+        "ACCESS_BACKGROUND_LOCATION"
+      ]
     },
     "web": {
       "favicon": "./assets/favicon.png"
