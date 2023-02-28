@@ -1,8 +1,8 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
-import trackerApi from '../api/tracker';
-import { navigate } from '../navigationRef';
-import createDataContext from './createDataContext';
+import trackerApi from "../api/tracker";
+import { navigate } from "../navigationRef";
+import createDataContext from "./createDataContext";
 
 const authReducer = (state, action) => {
   switch (action.type) {
@@ -97,8 +97,10 @@ const signin =
   };
 
 const signout = (dispatch) => {
-  return () => {
+  return async () => {
     // Clear identical data
+    await AsyncStorage.removeItem("token");
+    navigate("loginFlow");
   };
 };
 
