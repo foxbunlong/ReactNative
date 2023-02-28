@@ -15,6 +15,12 @@ app: SwitchNavigator > authFlow: StackNavigator
 --- React navigation V6 ---
 NavigationContainer > Stack.Navigator > Stack.Screen
 
+==== RN Map ====
+npx expo install react-native-maps -- --legacy-peer-deps
+
+==== Expo location ====
+npx expo install expo-location -- --legacy-peer-deps
+
 ==== New with JSX ====
 - Using source from rn-starter
 - Extract and run command: npm install --legacy-peer-deps
