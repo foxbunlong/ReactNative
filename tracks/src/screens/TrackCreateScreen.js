@@ -2,26 +2,29 @@
 // This might happen on simulator
 // import "../_mockLocation";
 
-import { useContext } from "react";
-import { StyleSheet } from "react-native";
-import { Text } from "react-native-elements";
-import { SafeAreaView, withNavigationFocus } from "react-navigation";
+import { useContext } from 'react';
+import { StyleSheet } from 'react-native';
+import { Text } from 'react-native-elements';
+import { SafeAreaView, withNavigationFocus } from 'react-navigation';
 
-import Map from "../components/Map";
-import Spacer from "../components/Spacer";
-import { Context as LocationContext } from "../context/LocationContext";
-import useLocation from "../hooks/useLocation";
+import Map from '../components/Map';
+import Spacer from '../components/Spacer';
+import TrackForm from '../components/TrackForm';
+import { Context as LocationContext } from '../context/LocationContext';
+import useLocation from '../hooks/useLocation';
 
 const styles = StyleSheet.create({});
 
 const TrackCreateScreen = ({ isFocused }) => {
-  const { addLocation } = useContext(LocationContext);
+  const { state, addLocation } = useContext(LocationContext);
 
   // Equivalent to
   // (location) => {
   //   addLocation(location);
   // }
-  const [err] = useLocation(isFocused, addLocation);
+  const [err] = useLocation(isFocused, (location) => {
+    addLocation(location, state.recording);
+  });
 
   // <NavigationEvents
   //   onWillBlur={() => {
@@ -35,6 +38,7 @@ const TrackCreateScreen = ({ isFocused }) => {
         <Text h3>Create a Track</Text>
         <Map />
         {err ? <Text>Please enable location service</Text> : null}
+        <TrackForm />
       </Spacer>
     </SafeAreaView>
   );
