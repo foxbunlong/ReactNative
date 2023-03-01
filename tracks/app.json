@@ -29,6 +29,11 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyAsGdUXWDqF7FtwpXWfQdcLgbz5siC-NIA"
+        }
+      },
       "package": "com.longtb.testapp",
       "permissions": [
         "ACCESS_COARSE_LOCATION",
