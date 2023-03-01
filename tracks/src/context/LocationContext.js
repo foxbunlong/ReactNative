@@ -1,4 +1,4 @@
-import createDataContext from './createDataContext';
+import createDataContext from "./createDataContext";
 
 const locationReducer = (state, action) => {
   switch (action.type) {
@@ -51,6 +51,7 @@ const addLocation = (dispatch) => (location, recording) => {
     type: "addCurrentLocation",
     payload: location,
   });
+  console.log("recording", recording);
   if (recording) {
     dispatch({
       type: "addLocation",

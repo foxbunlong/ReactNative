@@ -16,6 +16,10 @@ export default (shouldTrack, callback) => {
         throw new Error("Location permission not granted");
       }
 
+      // Force remove
+      subscriber?.remove();
+      setSubscriber(null);
+
       const sub = await watchPositionAsync(
         {
           accuracy: Accuracy.BestForNavigation,
@@ -30,15 +34,22 @@ export default (shouldTrack, callback) => {
     }
   };
 
+  // Has a problem of not reload newest state.recording in LocationContext
+  // Use useCallback instead
   useEffect(() => {
     console.log("shouldTrack", shouldTrack);
     if (shouldTrack) {
       startWatching();
     } else {
-      subscriber?.remove();
+      subscriber.remove();
       setSubscriber(null);
     }
-  }, [shouldTrack]);
+
+    return () => {
+      subscriber?.remove();
+      setSubscriber(null);
+    };
+  }, [shouldTrack, callback]);
 
   return [err];
 };

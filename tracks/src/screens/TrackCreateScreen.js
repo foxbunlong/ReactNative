@@ -2,7 +2,7 @@
 // This might happen on simulator
 // import "../_mockLocation";
 
-import { useContext } from 'react';
+import { useCallback, useContext } from 'react';
 import { StyleSheet } from 'react-native';
 import { Text } from 'react-native-elements';
 import { SafeAreaView, withNavigationFocus } from 'react-navigation';
@@ -17,14 +17,18 @@ const styles = StyleSheet.create({});
 
 const TrackCreateScreen = ({ isFocused }) => {
   const { state, addLocation } = useContext(LocationContext);
+  const callback = useCallback(
+    (location) => {
+      addLocation(location, state.recording);
+    },
+    [state.recording]
+  );
 
   // Equivalent to
   // (location) => {
   //   addLocation(location);
   // }
-  const [err] = useLocation(isFocused, (location) => {
-    addLocation(location, state.recording);
-  });
+  const [err] = useLocation(isFocused || state.recording, callback);
 
   // <NavigationEvents
   //   onWillBlur={() => {
