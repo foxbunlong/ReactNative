@@ -2,51 +2,32 @@
 // This might happen on simulator
 // import "../_mockLocation";
 
-import {
-  Accuracy,
-  requestForegroundPermissionsAsync,
-  watchPositionAsync,
-} from "expo-location";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { StyleSheet } from "react-native";
 import { Text } from "react-native-elements";
-import { SafeAreaView } from "react-navigation";
+import { SafeAreaView, withNavigationFocus } from "react-navigation";
 
 import Map from "../components/Map";
 import Spacer from "../components/Spacer";
 import { Context as LocationContext } from "../context/LocationContext";
+import useLocation from "../hooks/useLocation";
 
 const styles = StyleSheet.create({});
 
-const TrackCreateScreen = () => {
+const TrackCreateScreen = ({ isFocused }) => {
   const { addLocation } = useContext(LocationContext);
-  const [err, setErr] = useState(null);
 
-  const startWatching = async () => {
-    try {
-      const { granted } = await requestForegroundPermissionsAsync();
-      if (!granted) {
-        throw new Error("Location permission not granted");
-      }
+  // Equivalent to
+  // (location) => {
+  //   addLocation(location);
+  // }
+  const [err] = useLocation(isFocused, addLocation);
 
-      await watchPositionAsync(
-        {
-          accuracy: Accuracy.BestForNavigation,
-          timeInterval: 1000,
-          distanceInterval: 10,
-        },
-        (location) => {
-          addLocation(location);
-        }
-      );
-    } catch (error) {
-      setErr(error);
-    }
-  };
-
-  useEffect(() => {
-    startWatching();
-  }, []);
+  // <NavigationEvents
+  //   onWillBlur={() => {
+  //     console.log("AAAAAAA");
+  //   }}
+  // />
 
   return (
     <SafeAreaView forceInset={{ top: "always" }}>
@@ -59,4 +40,4 @@ const TrackCreateScreen = () => {
   );
 };
 
-export default TrackCreateScreen;
+export default withNavigationFocus(TrackCreateScreen);
