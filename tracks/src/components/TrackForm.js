@@ -2,27 +2,31 @@ import { useContext } from "react";
 import { Button, Input } from "react-native-elements";
 
 import { Context as LocationContext } from "../context/LocationContext";
+import useSaveTrack from "../hooks/useSaveTrack";
 import Spacer from "./Spacer";
 
 const TrackForm = () => {
-  const { state, startRecording, stopRecording, changeName } =
-    useContext(LocationContext);
+  const {
+    state: { name, recording, locations },
+    startRecording,
+    stopRecording,
+    changeName,
+  } = useContext(LocationContext);
 
-  console.log(state.locations.length);
+  const [saveTrack] = useSaveTrack();
 
   return (
     <Spacer>
-      <Input
-        placeholder="Enter name"
-        defaultValue={state.name}
-        onChangeText={changeName}
-      />
+      <Input placeholder="Enter name" value={name} onChangeText={changeName} />
       <Button
-        title={state.recording ? "Stop tracking" : "Start tracking"}
+        title={recording ? "Stop tracking" : "Start tracking"}
         onPress={() => {
-          state.recording ? stopRecording() : startRecording();
+          recording ? stopRecording() : startRecording();
         }}
       />
+      {!recording && locations.length ? (
+        <Button title="Save route" onPress={saveTrack} />
+      ) : null}
     </Spacer>
   );
 };
