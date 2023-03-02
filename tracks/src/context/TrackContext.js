@@ -3,12 +3,20 @@ import createDataContext from "./createDataContext";
 
 const trackReducer = (state, action) => {
   switch (action.type) {
+    case "getList":
+      return action.payload;
     default:
       return state;
   }
 };
 
-const fetchTracks = (dispatch) => () => {};
+const fetchTracks = (dispatch) => async () => {
+  const response = await trackerApi.get("/tracks");
+  dispatch({
+    type: "getList",
+    payload: response.data,
+  });
+};
 
 const saveTracks = (dispatch) => async (name, locations) => {
   console.log("name", name);
