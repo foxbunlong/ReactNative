@@ -30,7 +30,7 @@ const AccountScreen = () => {
 AccountScreen.navigationOptions = () => {
   return {
     title: "Account",
-    tabBarIcon: <FontAwesome name="gear" size={20} color={'white'} />,
+    tabBarIcon: <FontAwesome name="gear" size={20} color={"white"} />,
   };
 };
 

@@ -1,5 +1,15 @@
 react native setup
 
+==== Build/Update OTA ====
+- Config step
+eas update:configure
+- Check config at expo.updates.url and expo.runtimeVersion in app.json
+- Update eas.json, rename `releaseChannel` to `channel`
+- Build step
+eas build -p <platform android or ios> --profile <selected profile>
+- Publish update step
+eas update --channel <channel name> --message "Update message"
+
 ==== React navigation ====
 - Installation
 yarn add react-navigation
