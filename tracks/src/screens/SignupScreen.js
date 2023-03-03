@@ -1,9 +1,12 @@
+import Constants from "expo-constants";
 import { useContext } from "react";
 import { StyleSheet, View } from "react-native";
+import { Text } from "react-native-elements";
 import { NavigationEvents } from "react-navigation";
 
 import AuthForm from "../components/AuthForm";
 import NavLink from "../components/NavLink";
+import Spacer from "../components/Spacer";
 import { Context as AuthContext } from "../context/AuthContext";
 
 // justifyContent - applied for the same direction of container - primary axis
@@ -29,7 +32,7 @@ const SignupScreen = ({ navigation }) => {
         // onDidBlur={() => console.log('DDDDDD')}
       />
       <AuthForm
-        headerText="Sign Up for Tracker"
+        headerText="Sign Up for Tracker 1"
         errorMessage={state.errorMessage}
         submitBtnText="Sign Up"
         onSubmit={signup}
@@ -38,6 +41,9 @@ const SignupScreen = ({ navigation }) => {
         title="Already have an account? Signin now"
         callback={() => navigation.navigate("Signin")}
       />
+      <Spacer>
+        <Text>Version {Constants.manifest.version}</Text>
+      </Spacer>
     </View>
   );
 };
