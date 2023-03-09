@@ -1,5 +1,13 @@
 react native setup
 
+==== Using Codepush ====
+- Get list of deployment from Appcenter
+appcenter codepush deployment list -a {UserName}/{ProjectNameInAppCenter}
+- Create new deployment for Appcenter
+appcenter codepush deployment add -a {UserName}/{ProjectNameInAppCenter} Staging
+- Update key to string.xml
+<string moduleConfig="true" name="CodePushDeploymentKey">DeploymentKey</string>
+
 ==== Build/Update OTA ====
 - Config step
 eas update:configure
